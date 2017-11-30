@@ -28,4 +28,4 @@ branches:
   - v3.0/master
   - v3.1/dev
 notifications:
-  irc: "chat.freenode.net#modsecurity"
+#  irc: "chat.freenode.net#modsecurity"
