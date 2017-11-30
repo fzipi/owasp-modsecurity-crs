@@ -8,8 +8,8 @@ cache: pip
 before_install:
   - docker pull owasp/modsecurity-crs
   - docker run -ti -e PARANOIA=5 -d --rm -p 80:80 -v $(pwd)/rules:/etc/httpd/modsecurity.d/owasp-crs/rules/ -v /var/log/httpd:/var/log/httpd/ owasp/modsecurity-crs
-install: 
   - docker ps | grep -q modsecurity-crs
+install: 
   - pip install -r ./util/integration/requirements.txt
   - pip install -r ./util/regression-tests/requirements.txt
 script:
@@ -22,11 +22,3 @@ script:
   - py.test -vs util/regression-tests/CRS_Tests.py --ruledir=util/regression-tests/tests/REQUEST-941-APPLICATION-ATTACK-XSS
   - py.test -vs util/regression-tests/CRS_Tests.py --ruledir=util/regression-tests/tests/REQUEST-942-APPLICATION-ATTACK-SQLI
   - py.test -vs util/regression-tests/CRS_Tests.py --ruledir=util/regression-tests/tests/REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION
-# safelist
-branches:
-  only:
-  - v3.0/dev
-  - v3.0/master
-  - v3.1/dev
-notifications:
-#  irc: "chat.freenode.net#modsecurity"
