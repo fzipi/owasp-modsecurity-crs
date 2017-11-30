@@ -8,7 +8,7 @@ cache: pip
 before_install:
   - docker pull owasp/modsecurity-crs
   - docker run -ti -e PARANOIA=5 -d --rm -p 80:80 -v $(pwd)/rules:/etc/httpd/modsecurity.d/owasp-crs/rules/ -v /var/log/httpd:/var/log/httpd/ owasp/modsecurity-crs
-  - docker ps | grep -q modsecurity-crs || echo 'BROKEN RULESET' && exit 1
+  - docker ps | grep -q modsecurity-crs || (echo 'BROKEN RULESET' && exit 1)
 install: 
   - pip install -r ./util/integration/requirements.txt
   - pip install -r ./util/regression-tests/requirements.txt
