@@ -20,7 +20,7 @@ We strive to make the OWASP ModSecurity CRS accessible to a wide audience of beg
 
 [Sign up for the mailing list](https://lists.owasp.org/mailman/listinfo/owasp-modsecurity-core-rule-set) to ask general usage questions and participate in discussions on the CRS.
 
-[Join the #modsecurity channel on Freenode IRC](https://webchat.freenode.net/?channels=%23modsecurity) to chat about the CRS.
+[Find us in the #coreruleset channel on Slack](https://owasp.slack.com/messages/CBKGH8A5P). If you haven't joined, use [this link](https://join.slack.com/t/owasp/shared_invite/enQtNjExMTc3MTg0MzU4LWQ2Nzg3NGJiZGQ2MjRmNzkzN2Q4YzU1MWYyZTdjYjA2ZTA5M2RkNzE2ZjdkNzI5ZThhOWY5MjljYWZmYmY4ZjM).
 
 ## License
 
