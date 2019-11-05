@@ -77,24 +77,24 @@ Installing on Apache
 2. Ensure that ModSecurity is loading correctly by checking error.log
 at start up for lines indicating ModSecurity is installed. An example
 might appear as follows:
-`ModSecurity for Apache/2.9.1 (http://www.modsecurity.org/) configured.`
+```ModSecurity for Apache/2.9.1 (http://www.modsecurity.org/) configured.```
 3. The most common method of deploying ModSecurity we have seen is
 to create a new folder underneath the Apache directory (typically
-/usr/local/apache/, /etc/httpd/, or /etc/apache2). Often this folder
+`/usr/local/apache/`, `/etc/httpd/`, or `/etc/apache2`). Often this folder
 is called 'modsecurity.d'. Create this folder and cd into it.
 4. Download our release from https://coreruleset.org/installation/
 and unpack it into a new owasp-modsecurity-crs folder.
-5. Move the crs-setup.conf.example file to crs-setup.conf.
+5. Move the `crs-setup.conf.example` file to `crs-setup.conf`.
 Please take the time to go through this file and customize the settings
 for your local environment. Failure to do so may result in false
 negatives and false positives. See the section entitled OWASP CRS
 Configuration for more detail.
-6. Rename rules/REQUEST-900-EXCLUSION-RULES-BEFORE-CRS.conf.example and
-rules/RESPONSE-999-EXCLUSION-RULES-AFTER-CRS.conf.example to remove the
-'.example' extension. This will allow you to add exclusions without updates
+6. Rename `rules/REQUEST-900-EXCLUSION-RULES-BEFORE-CRS.conf.example` and
+`rules/RESPONSE-999-EXCLUSION-RULES-AFTER-CRS.conf.example` to remove the
+`'.example'` extension. This will allow you to add exclusions without updates
 overwriting them in the future.
-7. Add the following line to your httpd.conf/apache2.conf (the following
-assumes you've put CRS into modsecurity.d/owasp-modsecurity-crs). You
+7. Add the following line to your `httpd.conf/apache2.conf` (the following
+assumes you've put CRS into `modsecurity.d/owasp-modsecurity-crs`). You
 can alternatively place these in any config file included by Apache:
 ```
 <IfModule security2_module>
@@ -113,30 +113,30 @@ Installing on Nginx
 2. Ensure that ModSecurity is loading correctly by checking error.log
 at start up for lines indicating ModSecurity is installed. An example
 might appear as follows:
-`ModSecurity for nginx (STABLE)/2.9.1 (http://www.modsecurity.org/) configured.`
+```ModSecurity for nginx (STABLE)/2.9.1 (http://www.modsecurity.org/) configured.```
 3. The most common method of deploying ModSecurity we have seen is
 to create a new folder underneath the Nginx directory (typically
-/usr/local/nginx/conf/). Often this folder
-is called 'owasp-modsecurity-crs'. Create this folder and cd into it.
+`/usr/local/nginx/conf/`). Often this folder
+is called `'owasp-modsecurity-crs'`. Create this folder and cd into it.
 4. Download our release from https://coreruleset.org/installation/
 and unpack it into a new owasp-modsecurity-crs folder.
-5. Move the crs-setup.conf.example file to crs-setup.conf.
+5. Move the `crs-setup.conf.example` file to `crs-setup.conf`.
 Please take this time to go through this
 file and customize the settings for your local environment. Failure to
 do so may result in false negatives and false positives. See the
 section entitled OWASP CRS Configuration for more detail.
-6. Rename rules/REQUEST-900-EXCLUSION-RULES-BEFORE-CRS.conf.example and
-rules/RESPONSE-999-EXCLUSION-RULES-AFTER-CRS.conf.example to remove the
-'.example' extension. This will allow you to add exceptions without updates
+6. Rename `rules/REQUEST-900-EXCLUSION-RULES-BEFORE-CRS.conf.example` and
+`rules/RESPONSE-999-EXCLUSION-RULES-AFTER-CRS.conf.example` to remove the
+`'.example'` extension. This will allow you to add exceptions without updates
 overwriting them in the future.
 7. Nginx requires the configuration of a single ModSecurity
 configuration file within the nginx.conf file using the
-'ModSecurityConfig' directive (when using ModSecurity 2.x).
+`'ModSecurityConfig'` directive (when using ModSecurity 2.x).
 Best practice is to set 'ModSecurityConfig' to a file from
 which you will include your other ModSecurity configuration
 files. In this example we will use:
-`ModSecurityConfig modsec_includes.conf;`
-7. Within modsec_includes.conf create your includes to the
+```ModSecurityConfig modsec_includes.conf;```
+7. Within `modsec_includes.conf` create your includes to the
 CRS folder similar to as follows (The modsecurity.conf file from the
 ModSecurity installation is included in this example):
 ```
@@ -185,16 +185,16 @@ Installing on IIS
 The IIS installer comes with an optional version of CRS built in.
 To upgrade or install this after the fact follow the following
 steps.
-1. Navigate to "[drive_letters]:\Program Files\ModSecurity IIS\"
+1. Navigate to `"[drive_letters]:\Program Files\ModSecurity IIS\"`
 2. Download our release from https://coreruleset.org/installation/
 and unpack it into the current folder.
-3. Move the crs-setup.conf.example file to crs-setup.conf.
+3. Move the `crs-setup.conf.example` file to `crs-setup.conf`.
 Please take this time to go through this
 file and customize the settings for your local environment. Failure to
 do so may result in false negatives and false positives. See the
 section entitled OWASP CRS Configuration for more detail.
-4. Rename rules/REQUEST-900-EXCLUSION-RULES-BEFORE-CRS.conf.example and
-rules/RESPONSE-999-EXCLUSION-RULES-AFTER-CRS.conf.example to remove the
+4. Rename `rules/REQUEST-900-EXCLUSION-RULES-BEFORE-CRS.conf.example` and
+`rules/RESPONSE-999-EXCLUSION-RULES-AFTER-CRS.conf.example` to remove the
 '.example' extension. This will allow you to add exceptions without updates
 overwriting them in the future.
 5. Navigate back to the 'ModSecurity IIS' folder and modify the
@@ -249,9 +249,9 @@ log to these locations as well.
 OWASP CRS Configuration
 =======================
 
-The crs-setup.conf file includes management rules
+The `crs-setup.conf` file includes management rules
 and directives that can control important CRS functions.
-The crs-setup.conf file comes with extensive comments.
+The crs-setup.conf` file comes with extensive comments.
 This section here brings only the essential parts.
 
 By default we do not include settings within the crs-setup.conf
@@ -260,12 +260,12 @@ settings are set during the installation of ModSecurity proper.
 An example for such such a
 configuration file is available via the ModSecurity project
 (https://github.com/SpiderLabs/ModSecurity/blob/master/modsecurity.conf-recommended).
-Be aware the crs-setup.conf file DOES specify
+Be aware the `crs-setup.conf` file DOES specify
 configuration directives such as SecDefaultAction. The default
 is the anomaly scoring mode with the appropriate
 SecDefaultAction as defined in the crs-setup.conf.
 Alternative configuration modes are supported and explained
-in crs-setup.conf.
+in `crs-setup.conf`.
 
 The default anomaly/correlation mode establishes an incoming
 anomaly score threshold of 5 and an outgoing anomaly score
